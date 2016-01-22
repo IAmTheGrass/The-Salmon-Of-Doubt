@@ -1,0 +1,9 @@
+<% @customers.each do |customerVar| %>
+  <tr>
+    <td><%= customerVar.name %></td>
+    <td><%= customerVar.company %></td>
+    <td><%= customerVar.userClass %></td>
+    <td><%= link_to "Edit", edit_customer_path(customerVar), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Delete", customer_delete_path(customerVar), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>

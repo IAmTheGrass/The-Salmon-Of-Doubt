@@ -1,0 +1,26 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_for @sale, remote: true, html: { style: "display:inline;" } do |f| %>
+      <div class="modal-body">
+        <ul class="errors"></ul>
+
+        <div class="form-group">
+          <%= f.label :transactionnum, class:"control-label" %>
+          <%= f.number_field :transactionnum, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :package_id, class: "control-label" %>
+          <%= f.collection_select(:package_id, Onepackage.all, :id, :name, promt: true) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :customer_id, class: "control-label" %>
+          <%= f.collection_select(:customer_id, Customer.all, :id, :name, promt: true) %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit class: "btn btn-primary" %>
+        <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+      </div>
+    <% end %>
+  </div>
+</div>

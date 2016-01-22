@@ -1,0 +1,9 @@
+<% @sales.each do |saleVar| %>
+  <tr>
+    <td><%= saleVar.transactionnum %></td>
+    <td><%= saleVar.package_id %></td>
+    <td><%= saleVar.customer_id %></td>
+    <td><%= link_to "Edit", edit_sale_path(saleVar), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Delete", sale_delete_path(saleVar), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>

@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @onepackage.errors.any? %>
+  <% @onepackage.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+  <% end %>
+<% else %>
+  $(".onepackage-index").html("<%= escape_javascript(render 'index') %>")
+  $("#onepackage-modal").modal("hide")
+<% end %>

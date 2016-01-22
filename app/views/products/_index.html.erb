@@ -1,0 +1,9 @@
+<% @products.each do |productVar| %>
+  <tr>
+    <td><%= productVar.name %></td>
+    <td><%= productVar.description %></td>
+    <td><%= productVar.baseCost %></td>
+    <td><%= link_to "Edit", edit_product_path(productVar), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Delete", product_delete_path(productVar), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>

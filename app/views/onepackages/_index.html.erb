@@ -1,0 +1,9 @@
+<% @onepackages.each do |onepackageVar| %>
+  <tr>
+    <td><%= onepackageVar.name %></td>
+    <td><%= onepackageVar.cost %></td>
+    <td><%= onepackageVar.product_ida %></td>
+    <td><%= link_to "Edit", edit_onepackage_path(onepackageVar), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Delete", onepackage_delete_path(onepackageVar), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>
