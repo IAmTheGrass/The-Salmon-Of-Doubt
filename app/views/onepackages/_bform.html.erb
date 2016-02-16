@@ -1,0 +1,19 @@
+<%= form_for @onepackage, remote: true, html: { style: "display:inline;" } do |f| %>
+<div class="modal-body">
+    <ul class="errors"></ul>
+
+        <div class="form-group">
+          <%= f.label :product_idb, class: "control-label" %>
+          <%= f.collection_select(:product_idb, Product.all, :id, :name, promt: true, :include_blank => true) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :product_idc, class: "control-label" %>
+          <%= f.collection_select(:product_idc, Product.all, :id, :name, promt: true, :include_blank => true) %>
+        </div>
+  </div>
+        <div class="modal-footer">
+        <%= f.submit class: "btn btn-primary" %>
+        <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+      </div>
+
+<% end %>

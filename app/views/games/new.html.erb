@@ -1,0 +1,26 @@
+<h1>New Gamer</h1>
+<%-# Form to make new customer -%>
+<%= form_for (games_path) do |f| %>
+ 
+<div class="field">
+<%= f.hidden_field :one, value: 12 %>
+<%= f.hidden_field :two, value: 12 %>
+<%= f.hidden_field :three, value: 2 %>
+<%= f.hidden_field :four, value: 12 %>
+<%= f.hidden_field :five, value: 12 %>
+<%= f.hidden_field :six, value: 12 %>
+<%= f.hidden_field :seven, value: 12 %>
+<%= f.hidden_field :eight, value: 12 %>
+<%= f.hidden_field :nine, value: 12 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :piece %><br>
+    <%= f.text_field :piece %>
+  </div>  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

@@ -1,0 +1,46 @@
+<p> Packages Calculations </p>
+
+<% @tPackageSale = 0 %>
+<% @vPackageSale = 0 %>
+<% @vPackage = 0 %>
+<% @dPackage = 0 %>
+
+<% @onepackages.each do |packageVar| %>
+<% @tPackageSale = @tPackageSale +  packageVar.sales.count %>
+<% @vPackage = @vPackage +  (packageVar.sales.count * packageVar.cost) %>
+<% packageVar.sales.each do |packageSaleVar| %>
+<% @vPackageSale = @vPackageSale +  packageSaleVar.cost %>
+<% end %>
+<% end %>
+<% @dPackage = @vPackageSale - @vPackage %>
+
+<p> Total # of Packages <%= @onepackages.each.count %> </p>
+<p> Total # of Sales of all Packages <%= @tPackageSale %> </p>
+<p> Total $ Value of sales of all Packages <%= @vPackageSale %> </p>
+<p> Total $ Value of sales of all Packages <%= @vPackage %> </p>
+<p> Total $ profit of sales of all Packages <%= @dPackage %> </p>
+
+<table>
+<tbody>
+<tr>
+	<th> Name </th>
+	<th> Cost </th>
+	<th> # Sales </th>
+	<th> $ Value of sales </th>
+	<th> $ Profit of sales </th>
+</tr>
+<% @onepackages.each do |testVar| %>
+<tr>
+	<% @useSalesCost = 0 %>
+	<td><%= testVar.name %></td>
+	<td><%= testVar.cost %></td>
+	<td><%= testVar.sales.count %></td>
+	<% testVar.sales.each do |saleVar| %>
+	<% @useSalesCost = @useSalesCost + saleVar.cost %>
+	<% end %>
+	<td><%= @useSalesCost %></td>
+	<td><%= @useSalesCost - (testVar.cost * testVar.sales.count) %></td>
+</tr>
+<% end %>
+</tbody>
+</table>

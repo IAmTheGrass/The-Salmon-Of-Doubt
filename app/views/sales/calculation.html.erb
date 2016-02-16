@@ -1,0 +1,35 @@
+<p> Sales Calulations </p>
+
+<% @vSales = 0 %>
+<% @vPackSales = 0 %>
+
+<% @sales.each do |salesVar| %>
+<% @vPackSales = @vPackSales +  salesVar.onepackage.cost %>
+<% @vSales = @vSales +  salesVar.cost %>
+<% end %>
+
+<p> Total # of Sales <%= @sales.each.count %> </p>
+<p> Total $ value of all Sales <%= @vSales %> </p>
+<p> Total $ value of Packages in all Sales <%= @vPackSales %> </p>
+<p> Total $ profit of Packages in all Sales <%= @vSales - @vPackSales %> </p>
+
+<table>
+<tbody>
+<tr>
+	<th> Transaction # </th>
+	<th> Customer </th>
+	<th> Cost </th>
+	<th> Package Cost </th>
+	<th> Profit </th>
+</tr>
+<% @sales.each do |salesVar| %>
+<tr>
+	<td><%= salesVar.transactionnum %></td>
+	<td><%= salesVar.customer.name %></td>
+	<td><%= salesVar.cost %></td>
+	<td><%= salesVar.onepackage.cost %></td>
+	<td><%= salesVar.cost - salesVar.onepackage.cost %></td>
+</tr>
+<% end %>
+</tbody>
+</table>

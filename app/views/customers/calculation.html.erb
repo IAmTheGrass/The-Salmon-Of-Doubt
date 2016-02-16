@@ -1,0 +1,57 @@
+<p> Customer Calcualtions </p>
+
+<% @totalSalesNumber = 0 %>
+<% @valuePackageNumber = 0 %>
+<% @valueSalesNumber = 0 %>
+<% @packageProfit = 0 %>
+
+<% @customers.each do |customerVar| %>
+<% customerVar.sales.each do |useme| %>
+	<% @valueSalesNumber = @valueSalesNumber + useme.cost %>
+
+	<% end %>
+<% customerVar.onepackages.each do |packVar| %>
+	<% @valuePackageNumber = @valuePackageNumber + packVar.cost %>
+
+	<% end %>
+<% @totalSalesNumber = @totalSalesNumber + customerVar.sales.count %>
+<% end %>
+<% @packageProfit = @valueSalesNumber - @valuePackageNumber%>
+
+<p> Total # of customers: <%= @customers.each.count %> </P>
+
+<p> Total # of sales to all customers: <%= @totalSalesNumber %> </P>
+<p> Total $ value of sales to all customers: <%= @valueSalesNumber %> </P>
+<p> Total $ value of all packages sold to customers: <%= @valuePackageNumber %> </P>
+<p> Total $ profit of all packages sold to customers: <%= @packageProfit %> </P>
+
+<table>
+<tbody>
+<tr>
+	<th> Name </th>
+	<th> # of Sales </th>
+	<th> $ value of Sales </th>
+	<th> $ value of Packages </th>
+	<th> Package $ profit </th>
+</tr>
+<% @customers.each do |testVar| %>
+<tr>
+	<% @tDifValue = 0 %>
+	<% @saleCount = 0 %>
+	<% @holdPackVal = 0 %>
+	<td><%= testVar.name %></td>
+	<td><%= testVar.sales.count %></td>
+	<% testVar.sales.each do |sale| %>
+	<% @saleCount = @saleCount + sale.cost %>
+	<% end %>
+	<td><%= @saleCount %></td>
+	<% testVar.onepackages.each do |pack| %>
+	<% @holdPackVal = @holdPackVal + pack.cost %>
+	<% end %>
+	<td><%= @holdPackVal %></td>
+	<% @tDifValue = @holdPackVal -  @saleCount%>
+	<td><%= @tDifValue %></td>
+</tr>
+<% end %>
+</tbody>
+</table>

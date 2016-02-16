@@ -1,0 +1,10 @@
+<p> Customer Relationships </P>
+
+<%= form_tag('/relationship', remore: true) do %>
+<%= collection_select(:post, :customer_id, Customer.all, :id, :name, promt: true ) %>
+
+<% end %>
+
+<div id="testdiv">
+
+</div>
