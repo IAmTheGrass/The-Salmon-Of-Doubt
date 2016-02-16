@@ -39,6 +39,14 @@ class CustomersController < ApplicationController
 		@customer.destroy
 	end
 
+	def calculation
+		@customers = Customer.all
+	end
+
+	def relationship
+		@customers = Customer.all
+	end
+
 	private
 	def customer_params
 		params.require(:customer).permit(:name, :company, :userClass)

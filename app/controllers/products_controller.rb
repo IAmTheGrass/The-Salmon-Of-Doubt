@@ -39,6 +39,10 @@ class ProductsController < ApplicationController
 		@product.destroy
 	end
 
+	def calculation
+		@products = Product.all
+	end
+
 	private
 	def product_params
 		params.require(:product).permit(:name, :description, :baseCost)

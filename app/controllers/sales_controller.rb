@@ -38,6 +38,10 @@ class SalesController < ApplicationController
 		@sale.destroy
 	end
 
+	def calculation
+		@sales = Sale.all
+	end
+
 	private
 	def sale_params
 		params.require(:sale).permit(:transactionnum, :package_id, :customer_id)

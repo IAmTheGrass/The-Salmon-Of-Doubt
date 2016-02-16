@@ -11,6 +11,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass'
 gem 'devise', '~>3.5.4'
+gem 'faker', '~>1.6.1'
+gem 'populator', '~>1.0.0'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 

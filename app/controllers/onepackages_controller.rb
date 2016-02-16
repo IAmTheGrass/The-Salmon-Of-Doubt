@@ -39,8 +39,12 @@ class OnepackagesController < ApplicationController
 		@onepackage.destroy
 	end
 
+	def calculation
+		@onepackages = Onepackage.all
+	end
+
 	private
 	def onepackage_params
-		params.require(:onepackage).permit(:name, :cost, :product_ida, :type)
+		params.require(:onepackage).permit(:name, :cost, :product_ida, :product_idb, :product_idc, :type)
 	end
 end
